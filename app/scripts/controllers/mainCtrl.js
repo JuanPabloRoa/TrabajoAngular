@@ -95,6 +95,8 @@ visible: 1
 
 .success(function(data, status, headers, config) {
     console.log(data);
+    alert(data.message) ;
+
     })
     .error(function(data, status, headers, config) {
     console.log(data);
