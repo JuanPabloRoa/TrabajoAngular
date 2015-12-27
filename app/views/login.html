@@ -1,0 +1,18 @@
+<div class="container">
+  <center>
+      <h1>Ingresa</h1>
+       <p><small>Podrás ver tus avisos y sumarte a otros, Ingresa</small></p>
+      <div class="input-group input-group-sm">
+           <span class="input-group-addon">Usuario</span>
+           <input type="text"  ng-model="username" class="form-control" placeholder="Nick de Usuario">
+      </div>
+      <div class="input-group input-group-sm">
+           <span class="input-group-addon">Contraseña</span>
+          <input type="password" ng-model= "password" class="form-control" placeholder="Contraseña">
+      </div>
+  </center>
+
+  <center>
+    <button ng-click="loginUsuario(username, password)" class="btn btn-default"> Ingresar </button>
+  </center>
+</div>
