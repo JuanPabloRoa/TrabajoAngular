@@ -1,6 +1,7 @@
 (function(){
     angular.module('angularSpa')
-.controller("PrincipalCtrl",function($scope,$http,$filter){
+.controller("PrincipalCtrl",['$scope','$http','$filter','fileUpload',function($scope,$http,$filter,fileUpload){
+  
 
 
 $scope.date = $filter('date')(new Date(), 'yyyy-MM-dd');
@@ -9,6 +10,17 @@ $scope.UsuarioR={};
 $scope.idUser;
 $scope.auth;
 $scope.funcionVisibilidad=false;
+$scope.VisibilidadBotonRegistrar=false;
+$scope.MostrarBotonRegistrar=function(){
+
+  if($scope.VisibilidadBotonRegistrar){
+    $scope.VisibilidadBotonRegistrar=false;
+  }
+  else{
+   $scope.VisibilidadBotonRegistrar=true;
+}
+}
+
 $scope.MetodoLogin=function(){//login
 
 
@@ -79,33 +91,54 @@ $http.get("http:/ /pliskin12.ddns.net:8080/taller-bd-11/usuarios/10/reportes")
     });
 }
 
-$scope.PostReporte=function(){
-$http.post("http://pliskin12.ddns.net:8080/taller-bd-11/usuarios/"+$scope.idUser+"/reportes",{
-contenido: $scope.Reporte.contenido,
-fecha: $scope.date,
-foto: "Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus.",
-latitud : 3.5,
-longitud: 3.7,  
-idFacultad: $scope.Reporte.facultad,
-idUsuario: $scope.idUser,
-solucionado: 0,
-validado: 1,
-visible: 1
-},{headers:{"auth_token": $scope.auth}})
+$scope.crearReporte = function(){
+       
+    var reporte = { //Aquí deben ingresar las variables del scope, lo que tengan en el html
+      contenido: $scope.contenido, //como aqui por ejemplo
+      fecha: $scope.date,
+      foto: "Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus.",
+      idFacultad: 100,
+      latitud: 3.5,
+      longitud: 3.7,
+      solucionado: 0,
+      validado: 0,
+      visible: 1
+    };
+    //Se trae el archivo en la vista
+    var file = $scope.myFile;
+    //Se define la url para subir (es un metodo general)
+    var uploadUrl = 'http://pliskin12.ddns.net:8080/taller-bd-11/files/upload';
+    //Se sube la imagen
+    var promesa = fileUpload.uploadFileToUrl(file, uploadUrl, $scope.auth);
+    var urlFoto;
+    promesa.then(function(result) {  // this is only run after $http completes
+       urlFoto = result;
+       console.log("urlFoto: "+ urlFoto.url);
+       reporte["foto"] = urlFoto.url;
+       console.log(reporte);//la foto se subio.. ahora debo crear el reporte
 
+    
+  $http.post("http://pliskin12.ddns.net:8080/taller-bd-11/usuarios/"+$scope.idUser+"/reportes",reporte,
+    {headers: {'auth_token' : $scope.auth}})
 .success(function(data, status, headers, config) {
+
     console.log(data);
     alert(data.message) ;
-
     })
     .error(function(data, status, headers, config) {
     console.log(data);
+    alert(data.message) ;
     });
-}
 
 
 
-});
+    });
+
+    }
+
+
+
+}]);
 
 
 })();
