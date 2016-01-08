@@ -21,6 +21,10 @@
             templateUrl:'views/login.html',
             controller:'UsuariosCtrl'
         })
+	.when('/usuarios/registro', {
+            templateUrl:'views/registro.html',
+            controller:'UsuariosCtrl'
+        })
         .when('/reportes/nuevo', {
             templateUrl:'views/crearReporte.html',
             controller:'ReportesCtrl'
