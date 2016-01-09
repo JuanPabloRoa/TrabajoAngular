@@ -1,10 +1,10 @@
 angular.module('angularSpa')
-.controller('ReportesCtrl', function($scope, $rootScope, $routeParams, reportesService, fileUpload){
+.controller('ReportesCtrl', function($scope, $rootScope, $routeParams, reportesService, fileUpload, universidadesService){
     //var username = $scope.username, password = $scope.password
     /*
     $scope.actor;*/
-    $scope.crearReporte = function crearReporte(){//login
-
+    $scope.crearReporte = function crearReporte(){
+    $scope.universidades = [];
     var reporte = { //Aquí deben ingresar las variables del scope, lo que tengan en el html
       contenido: $scope.contenido, //como aqui por ejemplo
       fecha: "2015-12-26",
@@ -40,5 +40,16 @@ angular.module('angularSpa')
     });
 
     };
+    function getUniversidades(){
+        universidadesService.getUniversidades($rootScope.auth_token)
+        .success(function(data){
+            console.log(data);
+            $scope.universidades = data;
+        })
+        .error(function(error){
+            $scope.status = 'Error al consultar por universidades';
+        });
+    }
+    getUniversidades();
 
 });

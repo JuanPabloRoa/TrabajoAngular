@@ -1,5 +1,5 @@
 angular.module('angularSpa')
-.controller('UsuariosCtrl', function($scope, $rootScope, $routeParams, usuariosService){
+.controller('UsuariosCtrl', function($scope, $rootScope, $routeParams, usuariosService, universidadesService){
     //Se define SIEMPRE un controlador por entidad/funcionalidad...
     // Un solo controlador para toda la página está malo, es dejar de usar MVC
     $scope.loginUsuario = function loginUsuario(){//login
@@ -12,6 +12,7 @@ angular.module('angularSpa')
 		    alert("Ingreso correcto.");
 		    $rootScope.idUser=data.idUsuario; //Rootscope guarda variables globales
 		    $rootScope.auth_token=data.auth_token;
+            
 				})
 				.error(function(data, status, headers, config) {
 				console.log(data);
@@ -25,7 +26,7 @@ angular.module('angularSpa')
 		nickname = $scope.nickUsuario;
 		mail = $scope.mailUsuario;
 		password = $scope.password;
-		
+
 		usuariosService.registro(nombre, apellido, nickname, mail, password)
 		.success(function(data, status, headers, config) {
 				console.log(data);
@@ -36,5 +37,9 @@ angular.module('angularSpa')
 		    alert("Error al registrarse.");
 			});
     };
+
+
+
+
 
 });
