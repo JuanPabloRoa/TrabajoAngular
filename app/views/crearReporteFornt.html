@@ -1,0 +1,112 @@
+
+ <section class="bg-primary">
+
+   <div class="container-fluid">
+
+  <center>
+
+      <h1>Publica</h1>
+      <h2>No puediste acceder a un lugar, Avisanos</h2>
+
+
+  </center>
+
+
+<!--Seccion de la subida de imagenes-->
+
+   <div class="col-md-4 col-md-offset-4">
+
+
+     <div class="input-group input-group-sm">
+
+       <label for "imagen">
+
+         Descripción:
+
+       </label>
+
+       <div>
+
+
+         <input type="file"  ng-model="imagen" class="form-control" placeholder="Imagen">
+
+       </div>
+
+     <!--seccion de la subida del mapiita-->
+
+
+     <div class="input-group input-group-sm">
+
+       <label for "map">
+
+         Ubicacíon:
+
+       </label>
+
+<div ng-app="angularSpa" ng-controller="ReportesCtrl">
+
+    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" events="map.events">
+    
+        <ui-gmap-marker ng-repeat="m in map.markers" coords="m.coords" icon="m.icon" idkey="m.id"></ui-gmap-marker>
+    </ui-gmap-google-map>
+
+
+ LATITUD: <input type ="text" ng-model= "latitud"> 
+  LONGITUD: <input type ="text" ng-model= "longitud"> 
+</div>
+
+
+                 </div>
+             </div>
+
+
+       </div>
+
+    <!--Seccion de la descripcion del aviso -->
+
+
+              <div class="input-group input-group-sm">
+
+                <label for "comment">
+
+                  Descripción:
+
+                </label>
+
+                <div>
+
+
+                  <textarea class="form-control" rows="3" id="comment"></textarea>
+
+
+
+                </div>
+
+
+
+              </div>
+
+
+            <!--Aqui comienza eñ combobox de las universidades-->
+            <div class="dropdown">
+             <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Universidades
+             <span class="caret"></span></button>
+             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+               <li role="presentation"><a role="menuitem" tabindex="-1" href="#">U1</a></li>
+               <li role="presentation"><a role="menuitem" tabindex="-1" href="#">U2</a></li>
+               <li role="presentation"><a role="menuitem" tabindex="-1" href="#">U3</a></li>
+               <!--JP esto hace que exista un boton separado seria como un otros puede que no sea conveniente ponerlo, o lo otro que se puede hace es que redireccione a ayuda pero no lo creo muy acertado-->
+
+              <li role="presentation" class="divider"></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ayuda</a></li>
+              </ul>
+              </div>
+
+<br><br>
+
+
+              </div>
+
+
+
+   </div>

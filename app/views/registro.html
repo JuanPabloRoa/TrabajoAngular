@@ -172,9 +172,9 @@
 
           <!-- Aqui va el checkbox de terminos y condiciones JP pliz ve la visivilidad-->
 
-          <div class="checkbox">
+           <div class="checkbox">
           <label>
-            <input type="checkbox" value="">
+            <input type="checkbox" value="" ng-click="MostrarBotonRegistrar()" >
             Acepto los terminos y condiciones de la página
           </label>
         </div>
@@ -185,9 +185,11 @@
     <br><br>
 
 
-  <center>
+ <center ng-show= "VisibilidadBotonRegistrar">
     <button ng-click="registroUsuario(nombreUsuario, apellidoUsuario, nickUsuario, mailUsuario, password)" class="btn btn-primary"> Registrate </button>
   </center>
+
+
 </div>
 
 </div>

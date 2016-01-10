@@ -1,7 +1,7 @@
 (function(){
 
     angular.module('angularSpa', [
-    'ngRoute'
+    'ngRoute','uiGmapgoogle-maps'
     ])
     .config(function($routeProvider){
         $routeProvider
@@ -26,7 +26,7 @@
             controller:'UsuariosCtrl'
         })
         .when('/reportes/nuevo', {
-            templateUrl:'views/crearReporte.html',
+            templateUrl:'views/crearReporteFornt.html',
             controller:'ReportesCtrl'
         })
            .otherwise({

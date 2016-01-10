@@ -1,19 +1,62 @@
 angular.module('angularSpa')
-.controller('ReportesCtrl', function($scope, $rootScope, $routeParams, reportesService, fileUpload, universidadesService){
-    //var username = $scope.username, password = $scope.password
-    /*
-    $scope.actor;*/
+.controller('ReportesCtrl', function($scope, $rootScope, $routeParams,$filter, reportesService, fileUpload, universidadesService){
+
+
+ $scope.latitud;
+ $scope.date = $filter('date')(new Date(), 'yyyy-MM-dd');//fecha actual
+
+$scope.longitud;
+
+ angular.extend($scope, {
+        map: {
+            center: {
+                latitude: -33.452798,
+                longitude:-70.686150
+            },
+            zoom: 11,
+            markers: [],
+
+
+
+            events: {
+            click: function (map, eventName, originalEventArgs) {
+                var e = originalEventArgs[0];
+                var lat = e.latLng.lat(),lon = e.latLng.lng();
+                $scope.latitud=lat;
+
+                $scope.longitud=lon;
+
+                var marker = {
+                    id: Date.now(),
+                    coords: {
+                        latitude: lat,
+                        longitude: lon
+                    }
+                };
+                $scope.map.markers.push(marker);
+
+                console.log($scope.map.markers);
+                $scope.$apply();
+
+         $scope.map.markers.pop();
+            }}}});
+
+
+
+
+
+    
     $scope.crearReporte = function crearReporte(){
     $scope.universidades = [];
     var reporte = { //Aquí deben ingresar las variables del scope, lo que tengan en el html
       contenido: $scope.contenido, //como aqui por ejemplo
-      fecha: "2015-12-26",
+      fecha: $scope.date,
       foto: "Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus.",
       idFacultad: 100,
-      latitud: 3.5,
-      longitud: 3.7,
+      latitud: $scope.latitud,
+      longitud: $scope.longitud,
       solucionado: 0,
-      validado: 0,
+      validado: 1,
       visible: 1
     };
     //Se trae el archivo en la vista
