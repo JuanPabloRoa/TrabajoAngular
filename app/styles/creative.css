@@ -81,7 +81,7 @@ aside {
 .navbar-default {
     border-color: rgba(34,34,34,.05);
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
-    background-color: #fff;
+    background-color: #000000;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -115,7 +115,7 @@ aside {
 .navbar-default .nav > li.active>a,
 .navbar-default .nav>li.active>a:focus {
     color: #f05f40!important;
-    background-color: transparent;
+    background-color: 000000;
 }
 
 .navbar-default .nav > li.active>a:hover,
@@ -126,7 +126,7 @@ aside {
 @media(min-width:768px) {
     .navbar-default {
         border-color: rgba(255,255,255,.3);
-        background-color: transparent;
+        background-color: 000000;
     }
 
     .navbar-default .navbar-header .navbar-brand {
@@ -178,6 +178,7 @@ header {
     position: relative;
     width: 100%;
     min-height: auto;
+    height:100%;
     text-align: center;
     color: #fff;
     background-image: url(../images/header.jpg);
@@ -215,9 +216,10 @@ header .header-content .header-content-inner p {
 
 @media(min-width:768px) {
     header {
-        min-height: 100%;
-    }
+        min-height: auto;
 
+    }
+/*
     header .header-content {
         position: absolute;
         top: 50%;
@@ -226,7 +228,7 @@ header .header-content .header-content-inner p {
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
     }
-
+*/
     header .header-content .header-content-inner {
         margin-right: auto;
         margin-left: auto;
@@ -482,4 +484,3 @@ body {
     height: 100%;
  	height:calc(100% - 0px);
 }
-
