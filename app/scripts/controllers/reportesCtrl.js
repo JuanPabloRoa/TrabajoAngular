@@ -2,10 +2,8 @@ angular.module('angularSpa')
 .controller('ReportesCtrl', function($scope, $rootScope, $routeParams,$filter, reportesService, fileUpload, universidadesService){
 
 
- $scope.latitud;
+ 
  $scope.date = $filter('date')(new Date(), 'yyyy-MM-dd');//fecha actual
-
-$scope.longitud;
 
  angular.extend($scope, {
         map: {
@@ -13,7 +11,7 @@ $scope.longitud;
                 latitude: -33.452798,
                 longitude:-70.686150
             },
-            zoom: 11,
+            zoom: 12,
             markers: [],
 
 
@@ -22,8 +20,8 @@ $scope.longitud;
             click: function (map, eventName, originalEventArgs) {
                 var e = originalEventArgs[0];
                 var lat = e.latLng.lat(),lon = e.latLng.lng();
-                $scope.latitud=lat;
 
+                $scope.latitud=lat;
                 $scope.longitud=lon;
 
                 var marker = {
@@ -52,7 +50,7 @@ $scope.longitud;
       contenido: $scope.contenido, //como aqui por ejemplo
       fecha: $scope.date,
       foto: "Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus.",
-      idFacultad: 100,
+      idUniversidad: 100,
       latitud: $scope.latitud,
       longitud: $scope.longitud,
       solucionado: 0,

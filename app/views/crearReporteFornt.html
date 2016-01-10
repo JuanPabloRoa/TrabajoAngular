@@ -1,4 +1,4 @@
-
+<div ng-app="angularSpa" ng-controller="ReportesCtrl">
  <section class="bg-primary">
 
    <div class="container-fluid">
@@ -28,35 +28,11 @@
        <div>
 
 
-         <input type="file"  ng-model="imagen" class="form-control" placeholder="Imagen">
+          <input type="file" file-model="myFile "class="form-control" id="foto">
 
        </div>
 
-     <!--seccion de la subida del mapiita-->
-
-
-     <div class="input-group input-group-sm">
-
-       <label for "map">
-
-         Ubicacíon:
-
-       </label>
-
-<div ng-app="angularSpa" ng-controller="ReportesCtrl">
-
-    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" events="map.events">
     
-        <ui-gmap-marker ng-repeat="m in map.markers" coords="m.coords" icon="m.icon" idkey="m.id"></ui-gmap-marker>
-    </ui-gmap-google-map>
-
-
- LATITUD: <input type ="text" ng-model= "latitud"> 
-  LONGITUD: <input type ="text" ng-model= "longitud"> 
-</div>
-
-
-                 </div>
              </div>
 
 
@@ -76,11 +52,12 @@
                 <div>
 
 
-                  <textarea class="form-control" rows="3" id="comment"></textarea>
-
+                  
+                  <textarea class="form-control" rows="3" ng-model= "contenido" id="comment"></textarea>
 
 
                 </div>
+
 
 
 
@@ -102,6 +79,10 @@
               </ul>
               </div>
 
+               <button ng-click="crearReporte()" class="btn btn-warning"> Publicar </button>
+
+   
+
 <br><br>
 
 
@@ -110,3 +91,29 @@
 
 
    </div>
+
+    <!--seccion de la subida del mapiita-->
+
+
+     <div class="input-group input-group-sm">
+
+       <label for "map">
+
+         Ubicacíon:
+
+       </label>
+
+
+
+    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" events="map.events">
+    
+        <ui-gmap-marker ng-repeat="m in map.markers" coords="m.coords" icon="m.icon" idkey="m.id"></ui-gmap-marker>
+    </ui-gmap-google-map>
+
+
+ LATITUD: <input type ="text" ng-model= "latitud"> 
+    LONGITUD: <input type ="text" ng-model= "longitud">
+
+
+                 </div>
+               </div>
