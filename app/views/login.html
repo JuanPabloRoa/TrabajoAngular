@@ -1,0 +1,60 @@
+
+
+<div class="container-fluid">
+ 
+ <div class="col-md-4 col-md-offset-4">
+
+
+  <center>
+  
+      <h1>Ingresa</h1>
+      <p><small>Podrás ver tus avisos y sumarte a otros, Ingresa</small></p>
+      
+  </center>
+
+          <div class="input-group input-group-sm">
+            
+            <label for="username"> 
+
+              Usuario: 
+
+            </label>
+
+            <div class="col-lg-12">
+
+              <input type="text"  ng-model="username" class="form-control" placeholder="Nick de Usuario">
+
+            </div>
+
+          </div>
+
+
+        <div class="input-group input-group-sm">
+
+          <label>
+          
+            Contraseña: 
+
+          </label>
+       
+
+             <div class="col-lg-11">
+                <input type="password"  ng-model="password" class="form-control" placeholder="Contraseña">
+            </div>
+          </div>
+   
+    <!-- salto de linea para el boton-->
+
+    <br><br>
+
+  
+
+
+  <center>
+    <button ng-click="loginUsuario(username, password)" class="btn btn-primary"> Ingresar </button>
+  </center>
+</div>
+
+
+</div>
+

@@ -1,653 +1,106 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!DOCTYPE HTML>
+<html>
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <title>ANDA</title>
-
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="styles/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="styles/bootstrap.min.css" type="text/css">
 
-    <!-- Custom Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+  <!-- Custom Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
 
-    <!-- Plugin CSS -->
-    <link rel="stylesheet" href="styles/animate.min.css" type="text/css">
+  <!-- Plugin CSS -->
+  <link rel="stylesheet" href="styles/animate.min.css" type="text/css">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles/creative.css" type="text/css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles/creative.css" type="text/css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
 </head>
-<body ng-app="angularSpa">
 
+<body ng-app="angularSpa">
     <body id="page-top">
 
         <nav id="mainNav" class="navbar navbar-default navbar-fixed-top" >
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Inicio</a>
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand page-scroll" href="#page-top">Inicio</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="page-scroll" href="#info">Información</a>
+                        </li>
+                        <li ng-hide="funcionVisibilidad">
+                            <a class="page-scroll" href="#/usuarios/registro">Registrate</a>
+                        </li>
+                         <li ng-hide="funcionVisibilidad">
+                            <a class="page-scroll" href="#/usuarios/login">Ingresa</a>
+                        </li>
+
+                        <li>
+                            <a class="page-scroll" href="#portafolio">Últimos avisos</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#contacto">Contacto</a>
+                        </li>
+                         <li>
+                            <a class="page-scroll" href="#ayuda">Ayuda</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
             </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="page-scroll" href="#info">Información</a>
-                    </li>
-                    <li ng-hide="funcionVisibilidad">
-                        <a class="page-scroll" href="#Registro">Registrate</a>
-                    </li>
-                     <li ng-hide="funcionVisibilidad">
-                        <a class="page-scroll" href="#Ingresa">Ingresa</a>
-                    </li>
-
-                    <li>
-                        <a class="page-scroll" href="#portafolio">Últimos avisos</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contacto">Contacto</a>
-                    </li>
-                     <li>
-                        <a class="page-scroll" href="#ayuda">Ayuda</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-        </nav> <!-- bien aca -->
+            <!-- /.container-fluid -->
+            </nav> <!-- bien aca -->
 
 
-        <header>
-        <div class="header-content">
-            <div class="header-content-inner">
-                <h1>ANDA</h1>
-                <hr>
-                <h2>¿Falta una rampa?, ¿No puedes ir a clases por falta de acceso?. Anda es una plataforma web para la denuncia de problemas de accesibilidad para personas con capacidades diferentes en instituciones de educación superior</h2>
-                <a href="#info" class="btn btn-primary btn-xl page-scroll">Saber más</a>
-            </div>
-        </div>
-        </header> <!-- bien aca-->
-    
-            <section class="bg-primary" id="info">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Tenemos lo que necesitas</h2>
-                    <hr class="light">
-                    <p class="text-faded">Te orientamos para saber tus derechos ve a la sección de ayuda, avisanos</p>
-                    <a href="#ayuda" class="btn btn-default btn-xl">Ayuda</a>
+            <header>
+            <div class="header-content">
+                <div class="header-content-inner">
+                    <h1>ANDA</h1>
+                    <hr>
+                    <h2>¿Falta una rampa?, ¿No puedes ir a clases por falta de acceso?. Anda es una plataforma web para la denuncia de problemas de accesibilidad para personas con capacidades diferentes en instituciones de educación superior</h2>
+                    <a href="#info" class="btn btn-primary btn-xl page-scroll">Saber más</a>
                 </div>
             </div>
-        </div>
-        </section> <!--bien aca -->
-
-      
-
-  <section id="Registro" ng-hide="funcionVisibilidad">
-    
-
-       <body ng-controller= "PrincipalCtrl">
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Registro</h2>
-                    <hr class="primary">
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                
-                <div class="col-lg-3 col-md-6 text-center">
-                    <h1>Datos personales </h1>
-                     <h2><small>Aqui se registran los datos del usuario</small></h2>
-                     
-                    <div class="input-group input-group-sm">
-                      <span class="input-group-addon">Nombre usuario</span>
-                      <input type="text" ng-model= "UsuarioR.nombre" class="form-control" placeholder="Nombre de usuario">
-                    </div>
-
-                    <div class="input-group input-group-sm">
-                      <span class="input-group-addon">Apellido usuario</span>
-                      <input type="text"  ng-model= "UsuarioR.apellido" class="form-control" placeholder="Apellido de el usuario">
-                    </div>
-
-                    <div class="input-group input-group-sm">
-                      <!-- /.ver porque  la barrita de nick name se ve ma corta TOC TOC TOC-->
-                      <span class="input-group-addon">Nick name       </span>
-                      <input type="text" ng-model= "UsuarioR.nick" class="form-control" placeholder="Apodo de usuario">
-                    </div>
-                </div>
-
-
-                <div class="col-lg-3 col-md-6 text-center">
-
-
-                    <div class="service-box">
-                    <h1>Datos de contacto </h1>
-                     <h2><small>Registro de email </small></h2>
-                     <h3><medium> </medium></h3>
-
-                     <div class="input-group input-group-sm">
-                      <span class="input-group-addon">Email usario </span>
-                      <input type="email" ng-model= "UsuarioR.mail" class="form-control" placeholder="Email del usuario">
-                    </div>
-                    <div class="input-group input-group-sm">
-                      <span class="input-group-addon">Confirme email</span>
-                      <input type="email" ng-model="UsuarioR.mail2" class="form-control" placeholder="Confirmacion de email">
-                    </div>
-                </div>
-                 </div>
-
-
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                    <h1>Contraseña</h1>
-                     <h2><small>Registro contraseña</small></h2>
-                     <h3><medium>   </medium></h3>
-                     <h4><medium>   </medium></h4>
-                    <h5><medium>    </medium></h5>
-                     <h6><medium>   </medium></h6>
-
-                     <div class="input-group input-group-sm">
-                      <span class="input-group-addon">Contraseña </span>
-                      <input type="password" ng-model= "UsuarioR.pass" class="form-control" placeholder="Contraseña">
-                    </div>
-                    <div class="input-group input-group-sm">
-                      <span class="input-group-addon">Confirme contraseña</span>
-                      <input type="password" ng-model= "UsuarioR.pass2" class="form-control" placeholder="Confirmacion de contraseña">
-                    </div>
-
-               </div>
-               </div>
-
-
-
-             <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                    <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h3 class="panel-title">Terminos y condiciones</h3>
-                  </div>
-                  <div class="panel-body">
-                    TERMINOS Y CONDICIONES DE LA PAGINA
-                  </div>
-              
-                </div>
-                 <div class="checkbox">
-                <label><input type="checkbox" ng-click="MostrarBotonRegistrar()"> He leido y acepto los terminos y condiciones</label>
-                </div>
-                </div>
-            </div>
-
-
-
-
-        </div>
-        <center ng-show= "VisibilidadBotonRegistrar">
-        <button ng-click="MetodoRegistro()" class="btn btn-warning"  > Registrar </button>
-        </center>
-    </div>
-
-</body>
-        </section> <!-- ien aca-->
-
-
- </section>
-
-
-     <!--Aqui comienza la funcion de subir un aviso-->
-
-
-   
-  <section id="publicar" ng-show= "funcionVisibilidad">
-
-<body ng-controller= "PrincipalCtrl">
-     <center>
-
-       <body>
-        <body bgcolor="black"> 
-
-        <div class="container">
-            <div class="row">
-                <h2 class="section-heading">Publica</h2>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="col-lg-12 text-center">
-                        <!--<div class="form-group">
-                        <label for="usr">Titulo</label>
-                        <input type="text" class="form-control" id="usr">
-                        </div> -->
-                        <div class="form-group">
-                        <label for="pwd">Descripcion</label>
-                        
-                        <textarea class="form-control" rows="5" ng-model= "contenido" id="comment"></textarea>
-                        </div>
-                    </div>
-                </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                    <div class="col-lg-12 text-center">
-                       <!--
-                        <div class="form-group">
-                        <label for="usr">Institución</label>
-                        <input type="text" class="form-control" id="Institucion">
-                        </div>
-                        -->
-                        <div class="form-group">
-                        <label for="pwd">Campus</label>
-                    
-                        <input type="text"  ng-model= "facultad" class="form-control" id="Campus">
-                        </div>
-                        </div>
-                        <!--
-                        <div class="form-group">
-                        <label for="pwd">Ubicación</label>
-                        <input type="text" class="form-control" id="Ubi">
-                        </div>
-                        -->
-                        <div class="form-group">
-                        <label for="pwd">Localización</label>
-                        <input type="text" class="form-control" id="localizacion">
-                        </div>
-                    </div>
-              
-                 <div class="col-lg-3 col-md-6 text-center">
-                    <div class="col-lg-12 text-center">
-                        <div class="form-group">
-                        <label for="usr">Foto</label>
-                    
-                        <input type="file" file-model="myFile "class="form-control" id="foto">
-                        <br></br>
-                         
-                         <button ng-click="crearReporte()" class="btn btn-warning"> Publicar </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        </body>
-     </center>
-</body>
-    </section> <!-- ien aca-->
-
-
-         <!--Aqui se termina la seccion de subir aviso -->
-
-
-
-
-    <section class="bg-primary" id="Ingresa" ng-hide="funcionVisibilidad">
-
-
-       <body ng-controller= "PrincipalCtrl">
-
-            <div class="container">
-           
-                    
-                <center>
-
-                    <h1>Ingresa </h1>
-                     <h2>Podrás ver tus avisos y sumarte a otros, Ingresa</h2>
-                    <div class="input-group input-group-sm">
-                         <span class="input-group-addon">Usuario     </span>
-                         <input type="text"  ng-model="Usuario.nick" class="form-control" placeholder="Nick de Usuario">
-                    </div>
-                    <div class="input-group input-group-sm">
-                         <span class="input-group-addon">Contraseña</span>
-                        <input type="password" ng-model= "Usuario.pass" class="form-control" placeholder="Contraseña">
-                    </div>
-                </center>
-
-        <center>
-            <button ng-click="MetodoLogin()" class="btn btn-default"> Ingresar </button>
-             </center>
-        </div>
-       
-        </body> 
-    </section>
-
-
-
-
-        <section class="no-padding" id="portafolio">
-        <div class="container-fluid">
-            <div class="row no-gutter">
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="images/portfolio/1.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="images/portfolio/2.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="images/portfolio/3.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="images/portfolio/4.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="images/portfolio/5.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="images/portfolio/6.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        </section>
-
-        <aside class="bg-dark">
-        <div class="container text-center">
-            <!--
-            <div class="call-to-action">
-                <h2>Free Download at Start Bootstrap!</h2>
-                <a href="#" class="btn btn-default btn-xl wow tada">Download Now!</a>
-            </div>
-            -->
-        </div>
-        </aside>
-
-        <section id="contacto">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Contactanos!</h2>
-                    <hr class="primary">
-                    <p></p>
-                </div>
-                <div class="col-lg-4 col-lg-offset-2 text-center">
-                    <i class="fa fa-phone fa-3x wow bounceIn"></i>
-                    <p>Telefono de contacto</p>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
-                    <p><a href="mailto:your-email@your-domain.com">Emaildecontacto@contacto.com</a></p>
-                </div>
-            </div>
-        </div>
-        </section>
-
-        <section class="bg-primary" id="ayuda">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">¿No sabes las normas de accesibilidad?</h2>
-                    <hr class="light">
-                    <p class="text-faded">Las tenemos aqui, lee tus derechos</p>
-
-                     <!--JP me eche por ahora esta seccion me estaba dejando la embarrada  pero ya tengo la solucion me falla un poco un componente del css cuando vuelva onda a las 9 30 lo soluciono y lo subo  esta version deveria tener el chectbox -->
-
-                        <div class="tabbable">
-                        <ul class="nav nav-tabs">
-                            <li class = "active"><a href="#1" data-toggle="tab">Reglamento de rampas</a></li>
-                            <li ><a href="#2" data-toggle="tab">Reglamento de estacionamiento</a></li>
-                            <li ><a href="#3" data-toggle="tab">Reglamento de espacios</a></li>
-                            <li ><a href="#4" data-toggle="tab">Más</a></li>
-                        </ul>
-                            <div class="tab-content">
-                            <div class="tab-pane active" id="1">
-                                
-
-                                <div class="panel panel-default">
-                                  <div class="panel-body">
-                                    
-
-                                
-                                         <div class="text-info">
-                                          <p class="text-justify">
-                                            Falta de rampa de acceso.<br><br>
-                                            Rampa de acceso inadecuada, es decir:<br>
-                                            <blockquote>
-                                             <p class="text-justify">
-                                            La rampa posee una pendiente inadecuada, es decir, posee una pendiente mayor a 12° en rampas  con longitud menor a dos metros o en rampas de longitud mayor una pendiente de 8°.<br><br>
-                                            La rampa posee una instancia de “descanso” más este es inadecuado, es decir,  no permite el giro de la silla de ruedas.<br><br>
-                                            La rampa no posee pasamanos.<br><br>
-                                            El pasamanos de la rampa posee una altura inadecuada.<br><br>
-                                            La rampa no posee elementos antideslizantes.<br><br>
-                                            Rampa de acceso bloqueada o en mal estado:<br>
-                                            <blockquote>
-                                            <p class="text-justify">
-                                            Existen elementos que bloquean el acceso o la circulación por la rampa tales como bicicletas,  cadenas, pilares, escaleras, etc, la institución ha de velar por el correcto acceso a las rampas.<br><br>
-                                             La rampa se encuentra en mal estado, es decir, falta de mantención con elementos peligrosos ( elementos cortantes tales como bordes afilados).<br><br>
-                                            </p>
-                                            </blockquote>
-
-                                             </blockquote>
-                                         </p>
-                                  
-                                    </div>
-                                  </div>
-                                </div>
-
-                            </div>
-                            <div class="tab-pane" id="2">
-                             <div class="panel panel-default">
-                                  <div class="panel-body">
-                                    
-                                    <div class="text-info">
-                                          <p class="text-justify">
-                                            Falta o uso inadecuado de estacionamientos para discapacitados:<br>
-                                            <blockquote>
-                                            <p class="text-justify">
-                                            Número insuficiente de estacionamientos.<br><br>
-                                            Los estacionamientos  no poseen las medidas adecuadas. <br><br>
-                                            Los estacionamientos no poseen el acceso adecuado, es decir no poseen un espacio de salida  adecuado o no existen rampas de acceso/saldia.<br><br>
-                                            Los estacionamientos para discapacitados poseen un uso inadecuado, es decir, son usados por personas que no poseen discapacidad, las instituciones deben velar por el correcto uso de estos.<br><br>
-                                         
-                                            </p>
-                                        </blockquote>
-
-                                         </p>
-                                  
-                                    </div>
-                                
-                                    
-                                    </div>
-                                  </div>
-                                </div>
-                            
-                            <div class="tab-pane" id="3">
-                             <div class="panel panel-default">
-                                  <div class="panel-body">
-                                    
-
-                                
-                                         <div class="text-info">
-                                          <p class="text-justify">
-                                           Instalaciones de trabajo inadecuadas:
-                                            <blockquote>
-                                            <p class="text-justify">
-                                            Escritorios, mesas de trabajo o de salas de altura inadecuada.<br><br>
-                                             Computadores que no contemplen accesibilidad:<br>
-                                             <blockquote>
-                                            <p class="text-justify">
-                                            Pantallas con bajo contraste.<br><br>
-                                            Pantallas a altura inadecuada.<br><br>
-                                            Computadores sin teclados especiales o adaptadores para estos.<br><br>
-                                            Falta de asistencia por voz<br><br>
-                                            instalaciones inadecuadas o faltas de mantención<br><br>
-                                            </p>
-                                            </blockquote>
-                                            <p class="text-justify">
-                                            Instalaciones con deficiencias:<br>
-                                            <blockquote>
-                                            <p class="text-justify">
-                                            Interruptores fuera del alcance.<br><br>
-                                            Manillas de acceso  fuera del alcance.<br><br>
-                                            Puertas de ancho adecuado.<br><br>
-                                            Salas sin señalización (ha de poseer un cartel indicativo en braille).<br><br>
-                                            Desniveles.<br><br>
-                                            Piso sin canales de señalización (opcional).<br><br>
-                                            Escaleras sin señalización (las escaleras han de estar señalizadas en braille, y el camino ha está  señalizado por canales en el piso).<br><br>
-                                            </p>
-                                            </blockquote>
-                                            </p>
-                                            <p class="text-justify">
-                                            Baños inadecuados, los baños para personas con sillas deben ser un cubículo especial adaptado a las sillas de ruedas:<br>
-                                            <blockquote>
-                                            <p class="text-justify">
-                                            Ancho o alto  inadecuado del baño.<br><br>
-                                            No posee pasamanos.<br><br>
-                                            No existe lavamos dentro del cubículo.<br><br>
-                                            Lavamanos no posee la altura adecuada.<br><br>
-                                            No existe espacio en el cubículo para girar la silla de ruedas.<br><br>
-                                            No existe espacio para levantarme de la silla de ruedas.<br><br>
-                                            La altura del pasamanos es inadecuado.<br><br>
-                                            Excesiva distancia entre el pasamanos y el inodoro.<br><br>
-                                            Instalaciones deficientes o en mal estado.<br><br>
-                                            </p>
-                                            </blockquote>
-                                        </p>
-                                         </p>
-                                  <blockquote>
-                                  </p>
-                                    </div>
-                                  </div>
-                                </div>
-                            </div>
-
-                            <div class="tab-pane" id="4">
-                             <div class="panel panel-default">
-                                  <div class="panel-body">
-                                    
-
-                                
-                                         <div class="text-info">
-                                          <p class="text-justify">
-                                           <a href="http://www.senadis.gob.cl/" target="_blank">Página de SENADIS (servicio nacional de discapacitados) </a><br><br>
-                                        <a href="http://www.senadis.gob.cl/pag/138/435/documentos_y_herramientas" target="_blank">Documetos y reglamentos vigentes de accesibilidad universal </a>
-
-                                         </p>
-                                    </div>
-                                  </div>
-                                </div>
-
-
-
-                            </div>
-                          </div>
-                        </div>
-
-
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/jquery.fittext.js"></script>
-    <script src="js/wow.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="js/creative.js"></script>
+            </header> <!-- bien aca-->
+
+
+<!--
+<nav class="navbar navbar-default">
+  <ul class="nav navbar-nav navbar-right">
+    <li><a href="#/home">Inicio</a></li>
+    <li><a href="#/usuarios/login">Ingresar</a></li>
+    <li><a href="#/reportes/nuevo">Crear reporte</a></li>
+  </ul>
+</nav>
+-->
+
+    <div ng-view=""></div>
 
   <!-- Recursos de bower-->
-  <!-- build:js js/vendor.js --> 
+  <!-- build:js js/vendor.js -->
   <!-- bower:js -->
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
@@ -657,19 +110,20 @@
   <!-- endbuild -->
 
   <!-- Recursos personales-->
-  <!-- build:js js/scripts.js -->   
+  <!-- build:js js/scripts.js -->
   <!-- inject:js -->
   <script src="scripts/app.js"></script>
   <script src="scripts/fileModel.js"></script>
+  <script src="scripts/reportesSrv.js"></script>
+  <script src="scripts/universidadesSrv.js"></script>
   <script src="scripts/uploadSrv.js"></script>
+  <script src="scripts/usuariosSrv.js"></script>
+  <script src="scripts/controllers/aboutCtrl.js"></script>
   <script src="scripts/controllers/mainCtrl.js"></script>
+  <script src="scripts/controllers/reportesCtrl.js"></script>
+  <script src="scripts/controllers/usuariosCtrl.js"></script>
   <!-- endinject -->
   <!-- endbuild -->
-
-
-
-
-    </body>
+  </body>
 </body>
-
 </html>

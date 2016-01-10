@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "cloudinary-core": "^2.0.3",
+    "cloudinary-jquery": "^2.0.3",
+    "cloudinary-jquery-file-upload": "^2.0.3"
+  },
   "devDependencies": {
     "bower": "^1.6.5",
     "del": "^2.0.2",
