@@ -474,3 +474,9 @@ img::-moz-selection {
 body {
     webkit-tap-highlight-color: #222;
 }
+
+#map-canvas {
+	width:100%;
+    height: 100%;
+ 	height:calc(100% - 0px);
+}

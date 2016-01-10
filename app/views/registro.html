@@ -1,12 +1,13 @@
+<section class="bg-primary" id="registro">
+
 <div class="container-fluid">
 
- <section class="bg-primary" id="registro">
-  
   <center>
-  
+
       <h1>Registrate</h1>
       <h2>Podrás avisar a otros sobre problemas de accesibilidad</h2>
-      
+      <hr>
+
   </center>
 
 
@@ -15,17 +16,17 @@
 
 
   <center>
-  
+
       <h3>Datos personales</h3><br>
       <h4>Queremos saber más de ti, ¿Como te llamas?</h4>
-      
+
   </center>
 
           <div class="input-group input-group-sm">
-            
-            <label for="nombreDeUsuario"> 
 
-              Nombre de usuario: 
+            <label for="nombreDeUsuario">
+
+              Nombre de usuario:
 
             </label>
 
@@ -39,10 +40,10 @@
 
 
         <div class="input-group input-group-sm">
-            
-            <label for="apellidoDeUsuario"> 
 
-              Apellido de usuario: 
+            <label for="apellidoDeUsuario">
+
+              Apellido de usuario:
 
             </label>
 
@@ -57,10 +58,10 @@
 
 
           <div class="input-group input-group-sm">
-            
-            <label for="nickDeUsuario"> 
 
-              Nick de usuario: 
+            <label for="nickDeUsuario">
+
+              Nick de usuario:
 
             </label>
 
@@ -71,76 +72,76 @@
             </div>
 
           </div>
-      
+
           <br><br>
 
 
         <center>
-        
+
             <h3>Datos de contacto</h3>
             <h4>Nesecitamos tener contacto</h4>
-            
-        </center>  
+
+        </center>
 
         <div class="input-group input-group-sm">
 
           <label>
-          
-            Email: 
+
+            Email:
 
           </label>
-       
+
              <div class="col-lg-11">
                 <input type="email"  ng-model="mailUsuario" class="form-control" placeholder="Email">
             </div>
-         
+
           </div>
 
 
         <div class="input-group input-group-sm">
 
           <label>
-          
-          Confirme mail: 
+
+          Confirme mail:
 
           </label>
-       
+
              <div class="col-lg-11">
                 <input type="email"  ng-model="confirmacionEmailUsuario" class="form-control" placeholder="Confirme mail">
             </div>
-         
+
           </div>
 
         <center>
-        
+
             <h3>Contraseña</h3>
             <h4>Cuida tus datos, escoge una contraseña segura</h4>
-            
+
         </center>
-   
+
         <div class="input-group input-group-sm">
 
           <label>
-          
-            Contraseña: 
+
+            Contraseña:
 
           </label>
-       
+
              <div class="col-lg-11">
                 <input type="password"  ng-model="password" class="form-control" placeholder="Contraseña">
             </div>
-         
+
           </div>
 
-            
+
             <div class="input-group input-group-sm">
 
           <label>
-          
-            Confirmar contraseña: 
+
+            Confirmar contraseña:
 
           </label>
-       
+
 
              <div class="col-lg-11">
                 <input type="password"  ng-model="confirmarPassword" class="form-control" placeholder="Contraseña">
@@ -149,10 +150,10 @@
 
 
            <center>
-        
+
             <h3>Terminos y condiciones</h3>
             <h4> Reglamento de uso de la aplicación</h4s>
-            
+
         </center>
 
           <!-- Aqui comienza el panel de terminos y condiciones -->
@@ -178,7 +179,7 @@
           </label>
         </div>
 
-        
+
     <!-- salto de linea para el boton-->
 
     <br><br>
@@ -187,10 +188,7 @@
   <center>
     <button ng-click="registroUsuario(nombreUsuario, apellidoUsuario, nickUsuario, mailUsuario, password)" class="btn btn-primary"> Registrate </button>
   </center>
-
+</div>
 
 </div>
 </section>
-
-</div>
-
