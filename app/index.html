@@ -51,17 +51,17 @@
                         <li>
                             <a class="page-scroll" href="#info">Información</a>
                         </li>
-                        <li ng-hide="funcionVisibilidad">
+                        <li ng-if="!auth_token">
                             <a class="page-scroll" href="#/usuarios/registro">Registrate</a>
                         </li>
-                         <li ng-hide="funcionVisibilidad">
+                         <li ng-if="!auth_token">
                             <a class="page-scroll" href="#/usuarios/login">Ingresa</a>
                         </li>
 
-                           <li>
-                            <a class="page-scroll" href="#/reportes/nuevo">Reporte</a>
+                           <li ng-if="auth_token">
+                            <a class="page-scroll" href="#/reportes/nuevo">Crear reporte</a>
                         </li>
-                        <li>
+                        <li ng-if="auth_token">
                             <a class="page-scroll" href="#/reportes">Últimos avisos</a>
                         </li>
                         <li>
