@@ -2,7 +2,7 @@ angular.module('angularSpa')
 .controller('ReportesCtrl', function($scope, $rootScope, $routeParams,$filter, reportesService, fileUpload, universidadesService){
 
 
- 
+
  $scope.date = $filter('date')(new Date(), 'yyyy-MM-dd');//fecha actual
 
  angular.extend($scope, {
@@ -43,14 +43,14 @@ angular.module('angularSpa')
 
 
 
-    
-    $scope.crearReporte = function crearReporte(){
     $scope.universidades = [];
+    $scope.crearReporte = function crearReporte(){
+
     var reporte = { //Aquí deben ingresar las variables del scope, lo que tengan en el html
       contenido: $scope.contenido, //como aqui por ejemplo
       fecha: $scope.date,
       foto: "Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus.",
-      idUniversidad: 100,
+      idUniversidad: $scope.universidad.id,
       latitud: $scope.latitud,
       longitud: $scope.longitud,
       solucionado: 0,
@@ -92,5 +92,13 @@ angular.module('angularSpa')
         });
     }
     getUniversidades();
+
+    $scope.universidad;
+    //alert('Selected count ID: ' + $scope.countSelected);
+
+    $scope.onchange = function(id) {
+        $scope.universidad = id;
+        //alert("id:" + id.nombre);
+    }
 
 });
