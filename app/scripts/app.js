@@ -29,6 +29,10 @@
             templateUrl:'views/crearReporteFornt.html',
             controller:'ReportesCtrl'
         })
+        .when('/reportes', {
+            templateUrl:'views/verReportes.html',
+            controller:'ReportesCtrl'
+        })
            .otherwise({
             redirectTo: '/home'
           });

@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "angular-google-maps": "^2.2.1",
     "cloudinary-core": "^2.0.3",
     "cloudinary-jquery": "^2.0.3",
     "cloudinary-jquery-file-upload": "^2.0.3"

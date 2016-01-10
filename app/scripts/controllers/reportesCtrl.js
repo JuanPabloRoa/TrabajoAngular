@@ -99,6 +99,19 @@ angular.module('angularSpa')
     $scope.onchange = function(id) {
         $scope.universidad = id;
         //alert("id:" + id.nombre);
-    }
+    };
+
+    $scope.reportes;
+    function getReportes(){
+        reportesService.getReportes($rootScope.auth_token)
+        .success(function(data){
+            console.log(data);
+            $scope.reportes = data;
+        })
+        .error(function(error){
+            $scope.status = 'Error al consultar por reportes';
+        });
+    };
+    getReportes();
 
 });
