@@ -6,7 +6,11 @@ angular.module('angularSpa')
           return $http.post(urlBase + 'usuarios/' +$rootScope.idUser + "/reportes" , reporte, {headers: {'auth_token' : auth_token}});
         };
 
-        this.getReportes = function(auth_token){
-            return $http.get(urlBase + 'reportes/rango/0/9', {headers: {'auth_token' : auth_token}});
+        this.getReportes = function(auth_token, inicio, fin){
+            return $http.get(urlBase + 'reportes/rango/' + inicio + '/' + fin, {headers: {'auth_token' : auth_token}});
         };
+/*
+        this.countReportes = function(auth_token){
+            return $http.get(urlBase + 'reportes/');
+        };*/
     });

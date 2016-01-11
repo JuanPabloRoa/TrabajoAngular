@@ -100,10 +100,11 @@ angular.module('angularSpa')
         $scope.universidad = id;
         //alert("id:" + id.nombre);
     };
-
+    $scope.inicio = 0;
+    $scope.fin = 9;
     $scope.reportes;
     function getReportes(){
-        reportesService.getReportes($rootScope.auth_token)
+        reportesService.getReportes($rootScope.auth_token, $scope.inicio, $scope.fin)
         .success(function(data){
             console.log(data);
             $scope.reportes = data;
@@ -111,7 +112,26 @@ angular.module('angularSpa')
         .error(function(error){
             $scope.status = 'Error al consultar por reportes';
         });
+
     };
     getReportes();
 
+    $scope.page = function(delta){
+        $scope.inicio = $scope.inicio + delta;
+        $scope.fin = $scope.fin + delta;
+        console.log("Inicio: " + $scope.inicio + " fin :" + $scope.fin);
+        getReportes();
+    };
+/*
+    function contarReportes(){
+        reportesService.countReportes($rootScope.auth_token)
+        .success(function(data){
+            console.log(data);
+            $scope.reportes = data;
+        })
+        .error(function(error){
+            $scope.status = 'Error al consultar por cantidad de reportes';
+        });
+    };
+    */
 });
