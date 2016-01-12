@@ -33,6 +33,10 @@
             templateUrl:'views/verReportes.html',
             controller:'ReportesCtrl'
         })
+        .when('/reportes/:idReporte', {
+            templateUrl:'views/reporteDetalle.html',
+            controller:'ReportesCtrl'
+        })
            .otherwise({
             redirectTo: '/home'
           });

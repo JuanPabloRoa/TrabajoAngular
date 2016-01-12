@@ -55,11 +55,10 @@
                     Ubicacion:
                 </label>
                 <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" events="map.events">
-                <ui-gmap-marker ng-repeat="m in map.markers" coords="m.coords" icon="m.icon" idkey="m.id"></ui-gmap-marker>
+                <ui-gmap-marker ng-repeat="m in map.markers" coords="m.coords" icon="m.icon"  options ="m.marker.options" idkey="m.id"></ui-gmap-marker>
                 </ui-gmap-google-map>
-                LATITUD: <input type ="text" ng-model= "latitud">
-                LONGITUD: <input type ="text" ng-model= "longitud">
-
+            
+                
             </div>
 
             <button ng-click="crearReporte()" class="btn btn-warning"> Publicar </button>

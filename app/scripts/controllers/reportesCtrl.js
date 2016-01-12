@@ -5,41 +5,6 @@ angular.module('angularSpa')
 
  $scope.date = $filter('date')(new Date(), 'yyyy-MM-dd');//fecha actual
 
- angular.extend($scope, {
-        map: {
-            center: {
-                latitude: -33.452798,
-                longitude:-70.686150
-            },
-            zoom: 12,
-            markers: [],
-
-
-
-            events: {
-            click: function (map, eventName, originalEventArgs) {
-                var e = originalEventArgs[0];
-                var lat = e.latLng.lat(),lon = e.latLng.lng();
-
-                $scope.latitud=lat;
-                $scope.longitud=lon;
-
-                var marker = {
-                    id: Date.now(),
-                    coords: {
-                        latitude: lat,
-                        longitude: lon
-                    }
-                };
-                $scope.map.markers.push(marker);
-
-                console.log($scope.map.markers);
-                $scope.$apply();
-
-         $scope.map.markers.pop();
-            }}}});
-
-
 
 
 
@@ -103,6 +68,7 @@ angular.module('angularSpa')
     $scope.inicio = 0;
     $scope.fin = 9;
     $scope.reportes;
+
     function getReportes(){
         reportesService.getReportes($rootScope.auth_token, $scope.inicio, $scope.fin)
         .success(function(data){
@@ -114,7 +80,26 @@ angular.module('angularSpa')
         });
 
     };
+    //getReportes();
     getReportes();
+
+
+    function getReporte(idReporte){
+        reportesService.getReporte($rootScope.auth_token, idReporte)
+        .success(function(data){
+            $scope.latitudMapa=data.latitud;
+            $scope.longitudMapa=data.longitud;
+            console.log(data);
+            $scope.reporte = data;
+          
+        })
+        .error(function(error){
+            $scope.status = 'Error al consultar por un reporte';
+        });
+
+    };
+    //getReportes();
+    getReporte($routeParams.idReporte);
 
     $scope.page = function(delta){
         $scope.inicio = $scope.inicio + delta;
@@ -122,6 +107,74 @@ angular.module('angularSpa')
         console.log("Inicio: " + $scope.inicio + " fin :" + $scope.fin);
         getReportes();
     };
+
+
+
+
+
+
+
+
+
+ angular.extend($scope, {
+        map: {
+            center: {
+                latitude: -33.452798,
+                longitude:-70.686150
+            },
+            zoom: 12,
+            markers: [],
+
+            events: {
+            click: function (map, eventName, originalEventArgs) {
+                var e = originalEventArgs[0];
+                var lat = e.latLng.lat(),lon = e.latLng.lng();
+
+                $scope.latitud=lat;
+                $scope.longitud=lon;
+
+                var marker = {
+
+                  options: {animation :1},
+                    id: Date.now(),
+                    coords: {
+                        latitude: lat,
+                        longitude: lon
+                    }
+                };
+                $scope.map.markers.push(marker);
+
+                console.log($scope.map.markers);
+                $scope.$apply();
+
+         $scope.map.markers.pop();
+            }}},//fin map
+
+            map2:{
+              center: {
+                       latitude: $scope.latitudMapa,
+                       longitude: $scope.longitudMapa
+                       //latitude: -33.046387, 
+                       //longitude:  -71.627014
+                        
+    }, 
+                       zoom: 12,
+                       options : {
+                       scrollwheel: false
+    },
+                       control: {},
+  //fin mapa 2
+
+            marker2: {
+                      options: {animation :1},
+                      id: 0,
+                      latitude: $scope.latitudMapa,
+                       longitude: $scope.longitudMapa
+                      //   latitude: -33.046387, 
+                      // longitude:  -71.627014
+                     }}
+
+          });
 /*
     function contarReportes(){
         reportesService.countReportes($rootScope.auth_token)
