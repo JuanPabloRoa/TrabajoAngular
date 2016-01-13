@@ -1,44 +1,53 @@
-<section class="bg-primary" id="reportes">
 
+<section class="bg-primary">
 
-    <row class="col-sm-6 col-md-offset-2">
-        <h1>Últimos reportes<h1>
-        <nav>
-          <ul class="pagination pagination-sm">
-            <li ng-if="inicio > 0">
-              <a ng-click="page(-10)" aria-label="Previous">
-                <span aria-hidden="true">&laquo; Anteriores </span>
-              </a>
-            </li>
-            <li >
-              <a ng-click="page(10)" aria-label="Next">
-                <span aria-hidden="true">&raquo; Siguientes</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <div class="container">
-            <div class="panel panel-default" ng-repeat="reporte in reportes">
+<div class="container">
+    <div class="container">
+        <center>
+            <h1>Últimos reportes</h1>
+        </center>
+        <row class="col-sm-4 ">
+            <nav>
+              <ul class="pagination pagination-sm">
+                <li ng-if="inicio > 0">
+                  <a ng-click="page(-10)" aria-label="Previous">
+                    <span aria-hidden="true">&laquo; Anteriores </span>
+                  </a>
+                </li>
+                <li >
+                  <a ng-click="page(10)" aria-label="Next">
+                    <span aria-hidden="true">&raquo; Siguientes</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+        </row>
+    </div>
+
+    <div class="container">
+        <div ng-repeat="reporte in reportes">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">Creado por: {{reporte.autor.nombreUsuario}} {{reporte.autor.apellidoUsuario}} el {{reporte.fecha}}</h2 >
+                </div>
                 <div class="panel-body">
-                    <div class="col-sm-4">
-                        <img src="{{reporte.foto}}" alt="Foto" style="width:304px;height:228px;">
-                    </div>
-                    <div class="col-sm-4 col-md-offset-1">
-                        <font color="black" >{{reporte.contenido}}</font>
-                        <p class="text-muted small" >Creado el: {{reporte.fecha}}</p>
-                        <p class="text-muted small" >Autor: {{reporte.autor.nickname}}</p>
-                        <p class="text-muted small" >Identificador: {{reporte.idReporte}}</p>
+                  <div class="col-sm-4" >
+                      <a href="#" class="thumbnail">
+                        <img src="{{reporte.foto}}" alt="Foto">
+                      </a>
+                  </div>
+                  <div class="col-sm-8">
+                      <div class="well">
+                          <p style="color:black;">{{reporte.contenido}}</p>
+                      </div>
 
-                        <li><a href="/#/reportes/{{reporte.idReporte}}">Detalles</a></li>
-                        
-                        
-
-                    </div>
+                      <a href="#/reportes/{{reporte.idReporte}}" class="btn btn-primary"> Más detalles </a>
+                  </div>
 
                 </div>
             </div>
         </div>
-    </row>
+    </div>
 
-
+</div>
 </section>
