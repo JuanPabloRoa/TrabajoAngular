@@ -82,6 +82,8 @@ angular.module('angularSpa')
     };
     //getReportes();
     getReportes();
+    $scope.coordenadas = {latitude: $scope.latitudMapa, longitude: $scope.latitudMapa};
+
 
 
     function getReporte(idReporte){
@@ -91,7 +93,33 @@ angular.module('angularSpa')
             $scope.longitudMapa=data.longitud;
             console.log(data);
             $scope.reporte = data;
-          
+
+            $scope.map2 = {
+                        center: {
+                                   latitude: data.latitud ,
+                                   longitude: data.longitud
+                                   //latitude: -33.046387,
+                                   //longitude:  -71.627014
+
+                                    },
+                        zoom: 12,
+                        options : {
+                                    scrollwheel: false
+                                },
+                        control: {},
+        //fin mapa 2
+                        marker2: {
+                            options: {animation :1},
+                            id: 0,
+                            //latitude: $scope.latitudMapa,
+                            //longitude: $scope.longitudMapa
+                            latitude: data.latitud,
+                            longitude:  data.longitud
+                     }};
+
+
+            //$scope.$apply();
+
         })
         .error(function(error){
             $scope.status = 'Error al consultar por un reporte';
@@ -150,29 +178,7 @@ angular.module('angularSpa')
          $scope.map.markers.pop();
             }}},//fin map
 
-            map2:{
-              center: {
-                       latitude: $scope.latitudMapa,
-                       longitude: $scope.longitudMapa
-                       //latitude: -33.046387, 
-                       //longitude:  -71.627014
-                        
-    }, 
-                       zoom: 12,
-                       options : {
-                       scrollwheel: false
-    },
-                       control: {},
-  //fin mapa 2
 
-            marker2: {
-                      options: {animation :1},
-                      id: 0,
-                      latitude: $scope.latitudMapa,
-                       longitude: $scope.longitudMapa
-                      //   latitude: -33.046387, 
-                      // longitude:  -71.627014
-                     }}
 
           });
 /*

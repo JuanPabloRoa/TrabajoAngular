@@ -1,63 +1,25 @@
  <div class="panel-body">
-                    <div class="col-sm-4">
-                        <img src="{{reporte.foto}}" alt="Foto" style="width:304px;height:228px;">
-                    </div>
-                    <div class="col-sm-4 col-md-offset-1">
-                        <font color="black" >{{reporte.contenido}}</font>
-                        <p class="text-muted small" >Creado el: {{reporte.fecha}}</p>
-                        <p class="text-muted small" >Autor: {{reporte.autor.nickname}}</p>
-                        <p class="text-muted small" >Identificador: {{reporte.idReporte}}</p>
-                      
-
-
-                      <div class="input-group input-group-sm">
-                <label for "map">
-                    Ubicacion:
-                </label>
-
-
-
-
-   
-
-                <ui-gmap-google-map center="{ latitude: -33.452798,
-                longitude:-70.686150
-    } " zoom="map2.zoom" draggable="true">
-
-                <ui-gmap-marker coords="{ latitude: -33.452798,
-                longitude:-70.686150
-    }" options ="map2.marker2.options" idkey="map2.marker2.id">
-                </ui-gmap-google-map>
-
-
-
-<!--
-<ui-gmap-google-map center="map2.center " zoom="map2.zoom" draggable="true">
-
-                <ui-gmap-marker coords="map2.marker2" options ="map2.marker2.options" idkey="map2.marker2.id">
-                </ui-gmap-google-map>
--->
-              
-             <p class="text-muted small" >Latitud: {{reporte.latitud}}</p>
-             <p class="text-muted small" >Longitud: {{reporte.longitud}}</p>
-        LATITUD: <input type ="text" ng-model= "latitudMapa"> 
-    LONGITUD: <input type ="text" ng-model= "longitudMapa">
-
-
-
-
-
+     <br></br>
+    <div class="panel panel-default">
+        <div class="panel-heading">Autor: {{reporte.autor.nickname}}, creado en {{reporte.fecha}}</div>
+        <div class="panel-body">
+            <div class="col-sm-4">
+                <img src="{{reporte.foto}}" alt="Foto" style="width:360px;height:auto;">
             </div>
+            <div class="col-sm-4 ">
+                <font color="black" >{{reporte.contenido}}</font>
+                <p class="text-muted small" >Creado el: {{reporte.fecha}}</p>
+                <p class="text-muted small" ></p>
+                <p class="text-muted small" >Identificador: {{reporte.idReporte}}</p>
+            </div>
+            <div class="col-sm-4 ">
+                <ui-gmap-google-map center="map2.center" zoom="map2.zoom" draggable="true">
+                    <ui-gmap-marker coords="map2.marker2" options ="map2.marker2.options" idkey="map2.marker2.id"></ui-gmap-marker>
+                </ui-gmap-google-map>
+            </div>
+        </div>
 
-                        
-                        
 
-                    </div>
-
-                </div>
-
-
-
-
-
-<br><a href="/#/reportes" type="button" class="btn btn-default">Volver</a><br>
+    </div>
+    <br><a href="/#/reportes" type="button" class="btn btn-default">Volver</a><br>
+</div>
