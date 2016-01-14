@@ -192,7 +192,14 @@ $scope.modificarReporte = function modificarReporte(){
     function copyArray(origen, desde, hasta){
         var temp = [];
         var len = origen.length;
-        for (var i = (len - 1) - desde; i >= (len - 1) - desde - hasta; i--) {
+        var inicio = len - 1;
+        var fin = 0
+        if(len >= 10){
+            inicio = (len - 1) - desde;
+            fin = (len - 1) - desde - hasta;
+            
+        }
+        for (var i = inicio; i >= fin; i--) {
             temp.push(origen[i]);
         }
         return temp;
