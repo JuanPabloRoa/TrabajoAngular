@@ -22,4 +22,25 @@
 
     </div>
     <br><a href="/#/reportes" type="button" class="btn btn-primary">Volver</a><br>
+
+
+
+    <div ng-if ="reporte.autor.idUsuario==idUser">
+
+<button ng-click="MostrarModificar()" ng-hide="visibilidadModificar" class="btn btn-warning"> Editar Reporte </button>
+</div>
+
+<div ng-show="visibilidadModificar">
+
+    
+    Contenido: <textarea class="form-control input-lg" rows="3" ng-model= "reporte.contenido" id="comment"></textarea>
+
+    
+    <input type="file" file-model="myFile "class="form-control" id="foto">
+                        <br></br>
+
+    
+    <button ng-click="modificarReporte()" class="btn btn-warning"> Guardar Cambios </button>    
+</div>
+
 </div>

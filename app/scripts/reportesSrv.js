@@ -14,6 +14,11 @@ angular.module('angularSpa')
             return $http.get(urlBase + 'reportes/'+ idReporte, {headers: {'auth_token' : auth_token}});
         };
 
+          this.modificarReporte = function(reporteModificado, auth_token,idReporte){
+            return $http.put(urlBase + 'reportes/edit/' + idReporte,reporteModificado, {headers: {'auth_token' : auth_token}});
+        };
+
+
         this.getMisReportes = function(auth_token){
             var result = $http.get(urlBase + 'usuarios/' +$rootScope.idUser + "/reportes", {headers: {'auth_token' : auth_token}});
 

@@ -7,7 +7,7 @@ angular.module('angularSpa')
 
 
 
-
+    $scope.idUsuario;
     $scope.universidades = [];
     $scope.crearReporte = function crearReporte(){
 
@@ -43,9 +43,58 @@ angular.module('angularSpa')
        		console.log(data);
            alert("Error en el reporte.");
        		});
-    });
+    });};
 
+    //visibilidad para modificaciones de reporte
+$scope.visibilidadModificar=false;
+$scope.MostrarModificar=function(){
+$scope.visibilidadModificar=true;
+}
+
+$scope.modificarReporte = function modificarReporte(){
+
+    var reporteModificado = { //Aquí deben ingresar las variables del scope, lo que tengan en el html
+      contenido: $scope.reporte.contenido, //como aqui por ejemplo
+      fecha: $scope.reporte.fecha,
+      foto: $scope.reporte.foto,
+      idReporte: $scope.reporte.idReporte,
+      idUniversidad: $scope.reporte.idUniversidad,
+      idUsuario: $scope.reporte.autor.idUsuario,
+      latitud: $scope.reporte.latitud ,
+      longitud: $scope.reporte.longitud,
+      solucionado: $scope.reporte.solucionado,
+      validado: $scope.reporte.validado,
+      visible: $scope.reporte.visible,
     };
+    //Se trae el archivo en la vista
+    var file = $scope.myFile;
+    //Se define la url para subir (es un metodo general)
+    var uploadUrl = 'http://pliskin12.ddns.net:8080/taller-bd-11/files/upload';
+    //Se sube la imagen
+    var promesa = fileUpload.uploadFileToUrl(file, uploadUrl, $rootScope.auth_token);
+    var urlFoto;
+    promesa.then(function(result) {  // this is only run after $http completes
+       urlFoto = result;
+       console.log("urlFoto: "+ urlFoto.url);
+       reporteModificado["foto"] = urlFoto.url;
+       console.log(reporteModificado);
+       console.log("Ahora deberia modificarse el reporte :c");
+       reportesService.modificarReporte(reporteModificado, $rootScope.auth_token,$scope.reporte.idReporte)
+       .success(function(data, status, headers, config) {
+          console.log(data);
+           alert("Reporte actualizado.");
+           $scope.visibilidadModificar=false;
+
+          })
+          .error(function(data, status, headers, config) {
+          console.log(data);
+           alert("Error en el reporte.");
+          });
+    });};
+
+
+
+
     function getUniversidades(){
         universidadesService.getUniversidades($rootScope.auth_token)
         .success(function(data){
