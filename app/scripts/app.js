@@ -37,6 +37,10 @@
             templateUrl:'views/reporteDetalle.html',
             controller:'ReportesCtrl'
         })
+        .when('/misReportes/', {
+            templateUrl:'views/misReportes.html',
+            controller:'ReportesCtrl'
+        })
            .otherwise({
             redirectTo: '/home'
           });

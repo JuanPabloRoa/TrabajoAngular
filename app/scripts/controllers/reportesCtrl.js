@@ -135,6 +135,33 @@ angular.module('angularSpa')
         console.log("Inicio: " + $scope.inicio + " fin :" + $scope.fin);
         getReportes();
     };
+    var inicioMios = 0;
+    var finMios = 9;
+    $scope.misReportes;
+    $scope.misReportesParcial;
+
+    function copyArray(origen, desde, hasta){
+        var temp = [];
+        var len = origen.length;
+        for (var i = (len - 1) - desde; i >= (len - 1) - desde - hasta; i--) {
+            temp.push(origen[i]);
+        }
+        return temp;
+    }
+
+    function getMisReportes(){
+        reportesService.getMisReportes($rootScope.auth_token)
+        .success(function(data){
+            console.log(data);
+            $scope.misReportes = data;
+            $scope.misReportesParcial = copyArray(data, 0, 9);
+        })
+        .error(function(error){
+            $scope.status = 'Error al consultar por mis reportes';
+        });
+    };
+    getMisReportes();
+
 
 
 

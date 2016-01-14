@@ -1,0 +1,36 @@
+<section class="bg-primary">
+
+<div class="container">
+    <div class="container">
+        <center>
+            <h1>Mis reportes</h1>
+        </center>
+    </div>
+
+    <div class="container">
+        <div ng-repeat="reporte in misReportesParcial">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">Creado por: {{reporte.autor.nombreUsuario}} {{reporte.autor.apellidoUsuario}} el {{reporte.fecha}}</h2 >
+                </div>
+                <div class="panel-body">
+                  <div class="col-sm-4" >
+                      <a href="#" class="thumbnail">
+                        <img src="{{reporte.foto}}" alt="Foto">
+                      </a>
+                  </div>
+                  <div class="col-sm-8">
+                      <div class="well">
+                          <p style="color:black;">{{reporte.contenido}}</p>
+                      </div>
+
+                      <a href="#/reportes/{{reporte.idReporte}}" class="btn btn-primary"> Más detalles </a>
+                  </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</section>

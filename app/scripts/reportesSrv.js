@@ -13,6 +13,12 @@ angular.module('angularSpa')
          this.getReporte = function(auth_token, idReporte){
             return $http.get(urlBase + 'reportes/'+ idReporte, {headers: {'auth_token' : auth_token}});
         };
+
+        this.getMisReportes = function(auth_token){
+            var result = $http.get(urlBase + 'usuarios/' +$rootScope.idUser + "/reportes", {headers: {'auth_token' : auth_token}});
+
+            return result;
+        };
 /*
         this.countReportes = function(auth_token){
             return $http.get(urlBase + 'reportes/');
